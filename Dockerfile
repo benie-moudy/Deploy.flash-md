@@ -1,7 +1,7 @@
 # Utiliser une image Node.js stable
 FROM node:18
 
-# Installer les outils nécessaires (git, ffmpeg, python, build tools si besoin)
+# Installer les outils nécessaires
 RUN apt-get update && apt-get install -y \
     git \
     ffmpeg \
@@ -9,17 +9,17 @@ RUN apt-get update && apt-get install -y \
     make \
     g++
 
-# Définir le répertoire de travail
+# Définir le dossier de travail
 WORKDIR /app
 
-# Cloner le projet depuis GitHub
+# Cloner ton projet
 RUN git clone https://github.com/franceking1/Flash-Md-V2.git .
 
-# Installer les dépendances Node.js
+# Installer les dépendances
 RUN npm install
 
-# Exposer le port utilisé par le serveur Express (important pour Render)
+# Exposer le port pour Render
 EXPOSE 10000
 
-# Lancer le bot
-CMD ["node", "index.js"]
+# Lancer le bot via npm (utilise le script "start" défini dans package.json)
+CMD ["npm", "start"]
