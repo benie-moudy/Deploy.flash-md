@@ -14,4 +14,4 @@ RUN git clone https://github.com/franceking1/Flash-Md-V2.git .
 RUN npm install
 
 # Lancer le bot
-CMD ["node", "."]
+CMD ["node", "index.js"]
